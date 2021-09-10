@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["qrscangen.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["qrscangen.herokuapp.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -139,7 +139,7 @@ DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-STATIC_URL = "http://" + AWS_STORAGE_BUCKET_NAME + ".s3.amazonaws.com/"
+STATIC_URL = "/static/"
 ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
 
@@ -162,5 +162,6 @@ AWS_BUCKET_NAME = os.environ.get("AWS_BUCKET_NAME")
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
